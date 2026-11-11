@@ -203,8 +203,11 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; 
   -webkit-mask: center / contain no-repeat; mask: center / contain no-repeat;
 }
 .logo-wordmark { -webkit-mask-image: url("../assets/logo/wordmark.svg"); mask-image: url("../assets/logo/wordmark.svg"); aspect-ratio: 1266 / 1332; }
+/* Top bar: Dan's wordmark set side to side (SPOTTY AND THE Owl, with APPAREL EST. 2018 below),
+   which reads far larger than the stacked version at the same height. */
+.logo-lockup { -webkit-mask-image: url("../assets/logo/wordmark-horizontal.svg"); mask-image: url("../assets/logo/wordmark-horizontal.svg"); aspect-ratio: 3858 / 812; }
 .logo-full { -webkit-mask-image: url("../assets/logo/logo-full.svg"); mask-image: url("../assets/logo/logo-full.svg"); aspect-ratio: 3352 / 2854; }
-.brand-mark { height: 56px; }
+.brand-mark { height: 48px; }
 .topnav, .topbar-cta { display: none; }
 
 .dock {
@@ -585,7 +588,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; 
   .wrap { padding-left: max(32px, env(safe-area-inset-left, 0px)); padding-right: max(32px, env(safe-area-inset-right, 0px)); }
   .block { padding-block: 96px; }
   .topbar-in { min-height: 84px; }
-  .brand-mark { height: 62px; }
+  .brand-mark { height: 56px; }
   .topnav { display: flex; gap: 4px; margin-left: auto; }
   .topnav a { padding: 10px 12px; text-decoration: none; font-weight: 600; border-radius: 8px; }
   .topnav a:hover { text-decoration: underline; text-decoration-color: var(--gold); text-decoration-thickness: 2px; text-underline-offset: 6px; }
@@ -638,6 +641,14 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; 
   .footer-brand .say { margin-top: 14px; }
   .footer-small { grid-column: 1 / -1; }
   .reasons-3 { grid-template-columns: repeat(3, 1fr); column-gap: 40px; }
+}
+
+/* Tablets held upright (760 to 959px): the wide logo leaves no room for the menu and
+   "Get a quote" in the top bar, so they use the phone's bottom bar instead. */
+@media (min-width: 760px) and (max-width: 959px) {
+  .topnav, .topbar-cta { display: none; }
+  .dock { display: grid; }
+  body { padding-bottom: calc(104px + env(safe-area-inset-bottom)); }
 }
 
 @media (min-width: 1100px) {
