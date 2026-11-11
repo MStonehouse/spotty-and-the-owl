@@ -90,6 +90,29 @@ The browser-tab and home-screen icons are Dan's owl, cut from his logo. `favicon
 
 ---
 
+## Moving to spottyandtheowlapparel.com
+
+Everything for the move is ready on the `domain-switch` branch: every page address and share-card address changed to `https://spottyandtheowlapparel.com/`, plus a `CNAME` file that tells GitHub Pages to answer for Dan's domain. **Don't merge it early.** Once `CNAME` is on `main`, the GitHub address redirects to Dan's domain, which shows the old WordPress site until the DNS change below takes effect. Merge it on switch day.
+
+Switch day, in this order:
+
+1. **Before anything else:** Dan approves the site, the quote form is connected, and his email address is on the site.
+2. **Verify the domain with GitHub** (your GitHub Settings, then Pages, then "Add a domain"). GitHub gives a TXT record to add at the domain's DNS. GitHub recommends this before pointing the domain, so nobody else can claim it.
+3. **Merge `domain-switch` into `main`.**
+4. **Change the DNS** where spottyandtheowlapparel.com is registered:
+   - Replace the domain's `A` records with GitHub's four: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`.
+   - Optional, for IPv6: `AAAA` records `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`.
+   - Point `www` with a `CNAME` record to `mstonehouse.github.io` (no repository name).
+   - **Leave the `MX` and email `TXT` records alone** if Dan's email uses this domain, or his email stops working.
+   - Don't add wildcard (`*`) records.
+5. **In the repo:** Settings, then Pages. The custom domain should show spottyandtheowlapparel.com. Tick "Enforce HTTPS" when it appears (it can take up to 24 hours).
+6. **Refresh link previews:** paste the address into Facebook's Sharing Debugger and click "Scrape Again".
+7. **Only then** cancel the old WordPress hosting. Keep the domain registration itself. The `.ca` domain can be forwarded to the `.com` at its registrar.
+
+DNS changes can take from minutes to a day to reach everyone.
+
+---
+
 ## Colours and type
 
 Colours are set once as tokens at the top of `css/style.css` (`--bone`, `--ink`, `--spruce`, `--gold` and friends), with a second set for dark mode. Every rule uses the tokens, so changing a colour in one place changes it everywhere.
