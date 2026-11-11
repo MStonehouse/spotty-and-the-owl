@@ -84,7 +84,15 @@
 /* 3. Base ------------------------------------------------------------------- */
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-padding-top: 88px; }
+html {
+  -webkit-text-size-adjust: 100%; scroll-padding-top: 88px;
+  /* Never scroll sideways. iPhone Safari pans the whole page left and right unless the page root
+     (html) is told not to, not just the body. "clip" stops it without breaking the sticky top bar. */
+  overflow-x: clip;
+}
+@supports not (overflow: clip) {        /* older iPhones (before iOS 16) don't know "clip" */
+  html, body { overflow-x: hidden; }
+}
 body {
   margin: 0;
   background: var(--bone);
@@ -363,7 +371,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; 
 .promo-img img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 18px; }
 .promo h2 { margin-bottom: 14px; }
 
-.filters { display: flex; gap: 8px; margin-bottom: 22px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }  /* wraps on the smallest phones */
 .filters button {
   min-height: 44px; padding: 0 18px; border-radius: 999px; cursor: pointer;
   border: 1.5px solid var(--fog); background: transparent; font-weight: 600;
