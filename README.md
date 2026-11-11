@@ -73,7 +73,7 @@ spotty-and-the-owl/
 
 ## Share card
 
-When someone shares a link to the site (Facebook, iMessage, Slack, LinkedIn...), the preview shows `assets/share-card.jpg`, a 1200 x 630 image, with the page's title and description. The tags that ask for it are near the top of every page, under the `<meta name="description">` line.
+When someone shares a link to the site (Facebook, iMessage, Slack, LinkedIn...), the preview shows `assets/share-card.jpg`, a 1200 x 630 image (Dan's wordmark rearranged side to side, the headline, and the embroidery hoop), with the page's title and description. The tags that ask for it are near the top of every page, under the `<meta name="description">` line.
 
 **The addresses must be absolute.** Link previews are made by the sharing app's own server, which fetches the image by its full address, so the tags say `https://mstonehouse.github.io/spotty-and-the-owl/...`. When the site moves to Dan's own domain, replace that address in all eight pages with the new one in a single search-and-replace.
 
