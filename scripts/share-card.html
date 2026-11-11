@@ -24,12 +24,12 @@
   .clasp { fill: var(--bone); }
   .stitch { fill: none; stroke: var(--gold); stroke-width: 3.2; stroke-linecap: round; stroke-dasharray: 9 7; }
 </style>
-</head>
+<style>/* The hoop photo: a square crop, clipped to the circle. */ .hoop .clip{position:absolute;inset:11%;border-radius:50%;overflow:hidden}.hoop .clip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:0}</style></head>
 <body>
 <style>.card{grid-template-rows:auto 1fr;padding-top:52px}
  .lock{width:680px;aspect-ratio:3858/550;background:var(--bone);-webkit-mask:url("../assets/logo/wordmark-horizontal-oneline.svg") left top/contain no-repeat;mask:url("../assets/logo/wordmark-horizontal-oneline.svg") left top/contain no-repeat}
  h1{font-size:92px;max-width:6.6em} .sub{font-size:54px;line-height:1.12;margin-top:20px;color:var(--bone);max-width:10em;font-weight:500}</style>
 <div class="card"><div class="lock"></div><div style="align-self:center"><h1>Make something worth wearing.</h1><p class="sub">Custom apparel in Courtenay, BC</p></div></div>
-<div class="hoop" style="right:56px;width:440px;height:440px"><img src="../assets/video/stitching-poster.webp" alt=""><svg viewBox="0 0 400 400" aria-hidden="true"><circle class="ring" cx="200" cy="200" r="168"/><circle class="ring" cx="200" cy="200" r="180"/>
+<div class="hoop" style="right:56px;width:440px;height:440px"><div class="clip"><img src="share-card-hoop.webp" alt=""></div><svg viewBox="0 0 400 400" aria-hidden="true"><circle class="ring" cx="200" cy="200" r="168"/><circle class="ring" cx="200" cy="200" r="180"/>
 <g class="clasp"><rect x="184" y="8" width="32" height="20" rx="3"/><rect x="176" y="2" width="48" height="8" rx="4"/></g><circle class="stitch" cx="200" cy="200" r="193"/></svg></div>
 </body></html>
