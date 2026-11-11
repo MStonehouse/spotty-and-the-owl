@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Source for assets/share-card.jpg. Open through a local server, set the browser window to 1200 x 630, screenshot, save as JPEG. See README "Share card". -->
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: "Archivo"; src: url("../assets/fonts/archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
+  @font-face { font-family: "Newsreader"; src: url("../assets/fonts/newsreader-italic.woff2") format("woff2"); font-weight: 200 800; font-style: italic; }
+  :root { --spruce: #24453A; --bone: #F2F3EF; --gold: #D8AE47; --soft: rgba(242, 243, 239, .78); }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body { background: var(--spruce); color: var(--bone); font-family: "Archivo", sans-serif; }
+  .card { position: relative; width: 1200px; height: 630px; padding: 64px 0 56px 72px; display: grid; grid-template-rows: auto 1fr auto; }
+  .mark { width: 104px; aspect-ratio: 1266 / 1332; background: var(--bone);
+          -webkit-mask: url("../assets/logo/wordmark.svg") center / contain no-repeat; mask: url("../assets/logo/wordmark.svg") center / contain no-repeat; }
+  h1 { align-self: center; font-size: 96px; font-weight: 800; font-stretch: 66%; line-height: .9; letter-spacing: -.01em; max-width: 7.2em; }
+  .sub { margin-top: 22px; font-size: 27px; line-height: 1.35; color: var(--soft); max-width: 21em; text-wrap: balance; }
+  .foot { display: flex; gap: 28px; align-items: baseline; font-size: 24px; color: var(--soft); }
+  .foot em { font: italic 500 30px "Newsreader", serif; color: var(--bone); }
+  .hoop { position: absolute; right: -40px; top: 50%; width: 560px; height: 560px; transform: translateY(-50%); }
+  .hoop img { position: absolute; inset: 11%; width: 78%; height: 78%; object-fit: cover; border-radius: 50%; }
+  .hoop svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .ring { fill: none; stroke: var(--bone); stroke-width: 7; }
+  .clasp { fill: var(--bone); }
+  .stitch { fill: none; stroke: var(--gold); stroke-width: 3.2; stroke-linecap: round; stroke-dasharray: 9 7; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="mark" aria-hidden="true"></div>
+    <div style="align-self:center">
+      <h1>Make something worth wearing.</h1>
+      <p class="sub">Screen printing, embroidery, vinyl, DTF and DTG for businesses, trades, schools and teams.</p>
+    </div>
+    <div class="foot"><span>Courtenay, BC, Vancouver Island</span><em>Wear your identity.</em></div>
+  </div>
+  <div class="hoop">
+    <img src="../assets/video/stitching-poster.webp" alt="">
+    <svg viewBox="0 0 400 400" aria-hidden="true">
+      <circle class="ring" cx="200" cy="200" r="168"/>
+      <circle class="ring" cx="200" cy="200" r="180"/>
+      <g class="clasp"><rect x="184" y="8" width="32" height="20" rx="3"/><rect x="176" y="2" width="48" height="8" rx="4"/></g>
+      <circle class="stitch" cx="200" cy="200" r="193"/>
+    </svg>
+  </div>
+</body>
+</html>

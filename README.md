@@ -70,6 +70,18 @@ spotty-and-the-owl/
 
 ---
 
+## Share card
+
+When someone shares a link to the site (Facebook, iMessage, Slack, LinkedIn...), the preview shows `assets/share-card.jpg`, a 1200 x 630 image, with the page's title and description. The tags that ask for it are near the top of every page, under the `<meta name="description">` line.
+
+**The addresses must be absolute.** Link previews are made by the sharing app's own server, which fetches the image by its full address, so the tags say `https://mstonehouse.github.io/spotty-and-the-owl/...`. When the site moves to Dan's own domain, replace that address in all eight pages with the new one in a single search-and-replace.
+
+**Changing the card.** Its source is `scripts/share-card.html`. Serve the folder (`python -m http.server 8000`), open `http://localhost:8000/scripts/share-card.html` in a 1200 x 630 window, take a screenshot and save it over `assets/share-card.jpg`. Then raise the number in `share-card.jpg?v=1` on every page (to `v=2`, and so on): apps keep their old copy of a preview picture, and a new address makes them fetch the new one.
+
+**Checking a preview.** Facebook's Sharing Debugger (developers.facebook.com/tools/debug) shows exactly what Facebook sees for a link and has a button to make it fetch again.
+
+---
+
 ## Colours and type
 
 Colours are set once as tokens at the top of `css/style.css` (`--bone`, `--ink`, `--spruce`, `--gold` and friends), with a second set for dark mode. Every rule uses the tokens, so changing a colour in one place changes it everywhere.
