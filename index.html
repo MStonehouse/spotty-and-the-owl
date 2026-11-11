@@ -287,9 +287,18 @@
       <section class="block" aria-labelledby="recent-h">
         <div class="wrap head head-row">
           <h2 id="recent-h">Recent work</h2>
-          <a class="link" href="work.html">All work</a>
+          <div class="strip-controls">
+            <a class="link" href="work.html">All work</a>
+            <button class="circ" type="button" data-strip-prev aria-controls="recent-strip" aria-label="Previous photo">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" /></svg>
+            </button>
+            <button class="circ" type="button" data-strip-next aria-controls="recent-strip" aria-label="Next photo">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5" /></svg>
+            </button>
+          </div>
         </div>
-        <div class="strip" tabindex="0" aria-label="Recent work, scroll sideways">
+        <!-- data-loop: main.js makes this row endless (see "Endless strip" in main.js) -->
+        <div class="strip" id="recent-strip" data-loop tabindex="0" aria-label="Recent work, scroll sideways">
           <figure class="strip-item">
             <img
               class=""

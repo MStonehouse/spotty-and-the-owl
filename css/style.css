@@ -315,6 +315,15 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; 
 }
 .strip::-webkit-scrollbar { display: none; }
 .strip-item { margin: 0; scroll-snap-align: start; }
+.strip-controls { display: flex; align-items: center; gap: 8px; }
+.strip-controls .link { margin-right: 8px; }
+.circ {
+  display: inline-grid; place-items: center; width: 44px; height: 44px; padding: 0;
+  border-radius: 50%; border: 1.5px solid var(--fog); background: transparent; color: var(--ink); cursor: pointer;
+}
+.circ:hover { border-color: var(--ink); }
+.strip-controls .circ { display: none; }  /* phones swipe; the arrows show from 760px up */
+.circ svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .strip-item img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 16px; background: var(--fog); }
 .strip-item figcaption { display: grid; padding-top: 10px; font-size: .95rem; color: var(--muted); }
 .strip-item figcaption strong { color: var(--ink); font-weight: 650; }
@@ -518,6 +527,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; 
   .topnav a:hover { text-decoration: underline; text-decoration-color: var(--gold); text-decoration-thickness: 2px; text-underline-offset: 6px; }
   .topnav a[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--gold); text-decoration-thickness: 2px; text-underline-offset: 6px; }
   .topbar-cta { display: inline-flex; }
+  .strip-controls .circ { display: inline-grid; }
 
   .hero {
     grid-template-columns: 1.05fr 1fr; grid-template-areas: none;

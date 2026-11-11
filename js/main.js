@@ -6,7 +6,8 @@
    1. Hero video and reduced motion
    2. Phone menu sheet
    3. "Who we work with" tabs (home page)
-   4. Work gallery: filters and photo viewer (work page)
+   4a. Endless "Recent work" strip (home page)
+   4b. Work gallery: filters and photo viewer (work page)
    5. Quote form (quote page)
    6. Footer year
    ========================================================================== */
@@ -74,7 +75,79 @@ document.querySelectorAll("[data-tabs]").forEach((box) => {
   });
 });
 
-/* 4. Work gallery -------------------------------------------------------------- */
+/* 4a. Endless strip ------------------------------------------------------------
+   The Recent work row on the home page loops: go past the last photo and the
+   first one comes next, in either direction.
+
+   How it works: the row holds three copies of the photos side by side,
+   [copy | real | copy], and you start on the real (middle) set. Whenever the row
+   comes to rest inside one of the copies, it jumps instantly by exactly one set's
+   width back into the middle. The copy and the real photos are identical, so the
+   jump can't be seen. */
+
+document.querySelectorAll(".strip[data-loop]").forEach((strip) => {
+  const real = [...strip.children];
+  const before = real.map(loopCopy);
+  const after = real.map(loopCopy);
+  strip.prepend(...before);
+  strip.append(...after);
+
+  // Measured on screen each time, so it stays right when the window is resized.
+  const left = (el) => el.getBoundingClientRect().left;
+  const setWidth = () => left(after[0]) - left(real[0]);   // one full set of photos
+  const step = () => left(real[1]) - left(real[0]);        // one photo plus the gap
+  // Where a photo sits when the row is "resting" on it (the snap line).
+  const snapLine = () => left(before[0]) + strip.scrollLeft;
+
+  // Jump sideways with snapping off, so the browser doesn't nudge the row mid-jump.
+  function jump(dx) {
+    strip.style.scrollSnapType = "none";
+    strip.scrollLeft += dx;
+    strip.style.scrollSnapType = "";
+  }
+
+  // If the row has come to rest in a copy, move back to the same photo in the real set.
+  function recenter() {
+    const w = setWidth();
+    const d = left(real[0]) - snapLine();   // 0 on the first real photo
+    if (d > step() / 2) jump(w);             // drifted back into the left copy
+    else if (d <= -w + step() / 2) jump(-w); // drifted on into the right copy
+  }
+
+  jump(setWidth());   // start on the first real photo
+
+  // Recenter only once the row has stopped (not while a finger is on it).
+  let timer, touching = false;
+  const settle = () => { clearTimeout(timer); timer = setTimeout(() => { if (!touching) recenter(); }, 140); };
+  strip.addEventListener("scroll", settle, { passive: true });
+  strip.addEventListener("touchstart", () => { touching = true; }, { passive: true });
+  strip.addEventListener("touchend", () => { touching = false; settle(); }, { passive: true });
+  addEventListener("resize", settle);
+
+  // Arrow buttons: one photo per press. Quick presses add up instead of being lost,
+  // because we aim from where the last press was heading, not from where the row is mid-glide.
+  let target = null, lastPress = 0;
+  function go(dir) {
+    const now = performance.now();
+    if (target === null || now - lastPress > 450) { recenter(); target = strip.scrollLeft; }
+    lastPress = now;
+    target += dir * step();
+    strip.scrollTo({ left: target, behavior: reduceMotion ? "auto" : "smooth" });
+  }
+  strip.addEventListener("scroll", () => { if (performance.now() - lastPress > 450) target = null; }, { passive: true });
+  document.querySelectorAll(`[aria-controls="${strip.id}"][data-strip-prev]`).forEach((b) => b.addEventListener("click", () => go(-1)));
+  document.querySelectorAll(`[aria-controls="${strip.id}"][data-strip-next]`).forEach((b) => b.addEventListener("click", () => go(1)));
+});
+
+/* A copy of a photo for the loop: hidden from screen readers and keyboard, so it's only scenery. */
+function loopCopy(el) {
+  const copy = el.cloneNode(true);
+  copy.setAttribute("aria-hidden", "true");
+  copy.inert = true;
+  return copy;
+}
+
+/* 4b. Work gallery -------------------------------------------------------------- */
 
 const filterButtons = document.querySelectorAll("[data-filter]");
 filterButtons.forEach((button) => button.addEventListener("click", () => {
