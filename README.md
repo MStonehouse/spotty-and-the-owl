@@ -18,7 +18,7 @@ Every page is its own HTML file, so each one has a real address that Google can 
 
 | Page | File | What's on it |
 |---|---|---|
-| Home | `index.html` | The embroidery-hoop video, the five decoration methods, who we work with, recent work, why choose us |
+| Home | `index.html` | The embroidery-hoop video, the five methods, who we work with, recent work, why choose us |
 | Services | `services.html` | Each method in detail, the method chooser table, blank apparel, promotional products |
 | Work | `work.html` | Gallery of finished jobs with Embroidery / Printing filters and a full-screen viewer |
 | Pricing | `pricing.html` | What determines price, order sizes, customer-supplied garments |
