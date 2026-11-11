@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Source for assets/share-card.jpg. Open through a local server, set the browser window to 1200 x 630, screenshot, save as JPEG. See README "Share card". -->
+<!-- Source for assets/share-card.jpg. Open through a local server, set the browser window to 1200 x 630, screenshot, save as JPEG. See README "Share card". Keep every line of text at 42px or larger: previews show the card at about 300 to 500px wide. -->
 <meta charset="utf-8">
 <style>
   @font-face { font-family: "Archivo"; src: url("../assets/fonts/archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
@@ -26,22 +26,19 @@
 </style>
 </head>
 <body>
-  <div class="card">
-    <div class="mark" aria-hidden="true"></div>
-    <div style="align-self:center">
-      <h1>Make something worth wearing.</h1>
-      <p class="sub">Screen printing, embroidery, vinyl, DTF and DTG for businesses, trades, schools and teams.</p>
-    </div>
-    <div class="foot"><span>Courtenay, BC, Vancouver Island</span><em>Wear your identity.</em></div>
-  </div>
-  <div class="hoop">
+<style>
+ .card{grid-template-rows:auto 1fr} .mark{width:128px}
+ h1{font-size:100px;max-width:6.4em} .sub{font-size:58px;line-height:1.12;margin-top:24px;color:var(--bone);max-width:10em;font-weight:500}
+</style>
+<div class="card"><div class="mark"></div>
+ <div style="align-self:center"><h1>Make something worth wearing.</h1>
+ <p class="sub">Custom apparel in Courtenay, BC</p></div></div>
+<div class="hoop" style="right:-90px;width:500px;height:500px">
     <img src="../assets/video/stitching-poster.webp" alt="">
     <svg viewBox="0 0 400 400" aria-hidden="true">
-      <circle class="ring" cx="200" cy="200" r="168"/>
-      <circle class="ring" cx="200" cy="200" r="180"/>
+      <circle class="ring" cx="200" cy="200" r="168"/><circle class="ring" cx="200" cy="200" r="180"/>
       <g class="clasp"><rect x="184" y="8" width="32" height="20" rx="3"/><rect x="176" y="2" width="48" height="8" rx="4"/></g>
       <circle class="stitch" cx="200" cy="200" r="193"/>
     </svg>
   </div>
-</body>
-</html>
+</body></html>
