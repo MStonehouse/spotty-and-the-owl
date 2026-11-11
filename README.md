@@ -82,6 +82,12 @@ When someone shares a link to the site (Facebook, iMessage, Slack, LinkedIn...),
 
 ---
 
+## Icons
+
+The browser-tab and home-screen icons are Dan's owl, cut from his logo. `favicon.ico` (16, 32 and 48px) and `assets/icons/favicon.svg` use a bolder face-only version, because the full drawing turns to mush at 16px; `apple-touch-icon.png` (iPhone home screen) and the `icon-*.png` files listed in `site.webmanifest` (Android) use the full head and chest as drawn. The maskable icon has extra space around the owl because Android may crop it to a circle.
+
+---
+
 ## Colours and type
 
 Colours are set once as tokens at the top of `css/style.css` (`--bone`, `--ink`, `--spruce`, `--gold` and friends), with a second set for dark mode. Every rule uses the tokens, so changing a colour in one place changes it everywhere.
