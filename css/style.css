@@ -11,6 +11,7 @@
    7. Hero and the embroidery hoop
    8. Home sections
    9. Inner pages (services, work, pricing, artwork, about, policies)
+   9b. Price estimator
    10. Quote form
    11. Call to action and footer
    12. Viewer
@@ -53,6 +54,7 @@
   --spruce-ink: #F2F3EF;  /* text on spruce */
   --gold: #B8891F;        /* thread gold: the running stitch, small accents */
   --gold-soft: #E9D9AE;
+  --on-spruce-gold: #E9D9AE; /* gold text on the green panels: light in both themes */
   --focus: #B8891F;
   --shadow: 0 1px 0 rgba(20, 23, 22, .06), 0 10px 30px -18px rgba(20, 23, 22, .45);
   color-scheme: light;
@@ -406,6 +408,55 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; 
 .policy .spots { margin-bottom: 1em; }
 .plain-ol { margin: 0 0 1em; padding-left: 1.4em; display: grid; gap: 10px; max-width: 62ch; }
 .plain-ol li::marker { font-weight: 700; color: var(--muted); }
+
+/* 9b. Price estimator (Pricing page) ------------------------------------------
+   Phones get a slim price strip (.est-live) that stays pinned while choosing options. */
+
+.est-wrap { padding-block: 8px 56px; }
+.est { display: grid; gap: 28px; padding: 24px 20px; border-radius: 22px; background: var(--paper); border: 1px solid var(--fog); }
+.est-head h2 { margin-bottom: 8px; }
+.est-head p { margin: 0; color: var(--muted); }
+.est-form { display: grid; gap: 4px; }
+.est-form fieldset { border: 0; margin: 0; padding: 14px 0 16px; border-top: 1px solid var(--fog); display: grid; gap: 12px; }
+.est-form legend { float: left; width: 100%; padding: 0; font-weight: 650; font-size: 1rem; margin-bottom: 2px; }
+.est-form legend + * { clear: both; }
+.est-qty { display: flex; align-items: center; gap: 8px; }
+.est-qty input { width: 110px; min-height: 52px; text-align: center; font-size: 1.35rem; font-weight: 700; border: 1.5px solid var(--fog); border-radius: 12px; background: var(--bone); }
+.est-step { width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid var(--fog); background: transparent; font-size: 1.5rem; cursor: pointer; color: var(--ink); }
+.est-presets button { min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1.5px solid var(--fog); background: transparent; color: var(--ink); font-weight: 600; cursor: pointer; }
+.est-presets button[aria-pressed="true"] { border-color: var(--ink); }
+.check input:disabled + span { opacity: .4; cursor: not-allowed; text-decoration: line-through; }
+.est-why { margin: 0; font-size: .95rem; color: var(--muted); }
+.est-result {
+  align-self: start; padding: 24px; border-radius: 18px; background: var(--spruce); color: var(--spruce-ink);
+  display: grid; gap: 6px;
+}
+.est-label { margin: 0; font-size: .95rem; opacity: .8; }
+.est-each { margin: 0; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.est-each span { font-size: clamp(2.4rem, 9vw, 3.4rem); font-weight: 800; font-stretch: 66%; line-height: 1; }
+.est-each small { font-size: 1.05rem; opacity: .85; }
+.est-total { margin: 4px 0 0; font-weight: 600; }
+.est-setup, .est-nudge { margin: 0; font-size: .95rem; opacity: .85; }
+.est-nudge:empty { display: none; }
+.est-nudge { color: var(--on-spruce-gold); opacity: 1; }
+.est-cta { justify-self: start; margin-top: 12px; }
+.est-fine { margin: 6px 0 0; font-size: .85rem; opacity: .75; }
+@media (min-width: 760px) {
+  .est { grid-template-columns: 1.4fr 1fr; column-gap: 40px; padding: 36px; }
+  .est-head { grid-column: 1 / -1; }
+  .est-result { position: sticky; top: 108px; padding: 30px; }
+}
+
+.est-qty input::-webkit-outer-spin-button, .est-qty input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.est-qty input { -moz-appearance: textfield; appearance: textfield; }
+.est-live {
+  position: sticky; top: calc(80px + env(safe-area-inset-top, 0px)); z-index: 3;
+  display: flex; align-items: baseline; gap: 8px; margin: -8px -8px 0; padding: 10px 14px; border-radius: 14px;
+  background: var(--spruce); color: var(--spruce-ink); box-shadow: var(--shadow);
+}
+.est-live strong { font-size: 1.5rem; font-weight: 800; font-stretch: 66%; }
+.est-live span { font-size: .9rem; opacity: .85; }
+@media (min-width: 760px) { .est-live { display: none; } }
 
 /* 10. Quote form ------------------------------------------------------------ */
 
