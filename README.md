@@ -42,7 +42,8 @@ spotty-and-the-owl/
 │   └── style.css       Looks: all the styling, in numbered sections (contents at the top)
 ├── js/
 │   ├── config.js       Settings the scripts need: phone number, quote form address
-│   └── main.js         Behaviour: phone menu, tabs, gallery filters and viewer, quote form
+│   ├── main.js         Behaviour: phone menu, tabs, gallery filters and viewer, quote form
+│   └── estimator.js    The Pricing page price estimator, with its price tables
 └── assets/
     ├── fonts/          Self-hosted fonts (Archivo, Newsreader) and their open-source licences
     ├── img/            Photos, each in an 800px and a 1600px WebP
@@ -72,7 +73,7 @@ spotty-and-the-owl/
 
 ## Share card
 
-When someone shares a link to the site (Facebook, iMessage, Slack, LinkedIn...), the preview shows `assets/share-card.jpg`, a 1200 x 630 image, with the page's title and description. The tags that ask for it are near the top of every page, under the `<meta name="description">` line.
+When someone shares a link to the site (Facebook, iMessage, Slack, LinkedIn...), the preview shows `assets/share-card.jpg`, a 1200 x 630 image (Dan's wordmark rearranged side to side, the headline, and the embroidery hoop), with the page's title and description. The tags that ask for it are near the top of every page, under the `<meta name="description">` line.
 
 **The addresses must be absolute.** Link previews are made by the sharing app's own server, which fetches the image by its full address, so the tags say `https://spottyandtheowlapparel.com/...`. If the domain ever changes, replace that address in all eight pages in a single search-and-replace.
 
@@ -90,13 +91,23 @@ The browser-tab and home-screen icons are Dan's owl, cut from his logo. `favicon
 
 ---
 
+## Price estimator
+
+The Pricing page has a ballpark price estimator (`js/estimator.js`, styles in section 9b of `css/style.css`). Visitors pick a garment, quantity, method, ink colours or design size, and one spot or front and back, and see a price range per item, the order total, any setup fee, and what the next quantity break would cost. "Get your exact quote" opens the quote form with those choices already ticked.
+
+**The prices are sample numbers.** They sit in four tables at the top of `js/estimator.js` (`GARMENT`, `METHOD`, `SETUP`, `BREAKS`), plus `NOT_FOR` for methods that don't suit a garment. Replace the numbers there; the `price()` function that combines them doesn't need to change. Anything in that file can be read by visitors in their browser.
+
+The Pricing page as it was before the estimator is saved on the `pricing-before-estimator` branch.
+
+---
+
 ## Moving to spottyandtheowlapparel.com
 
 This branch (`domain-switch`) holds everything for the move: every page address and share-card address changed to `https://spottyandtheowlapparel.com/`, plus a `CNAME` file that tells GitHub Pages to answer for Dan's domain. **Don't merge it early.** Once `CNAME` is on `main`, the GitHub address redirects to Dan's domain, which shows the old WordPress site until the DNS change below takes effect. Merge it on switch day.
 
 Switch day, in this order:
 
-1. **Before anything else:** Dan approves the site, the quote form is connected, and his email address is on the site.
+1. **Before anything else:** Dan approves the site, the quote form is connected, his email address is on the site, and **the price estimator has his real prices** (it currently runs on sample numbers; see "Price estimator").
 2. **Verify the domain with GitHub** (your GitHub Settings, then Pages, then "Add a domain"). GitHub gives a TXT record to add at the domain's DNS. GitHub recommends this before pointing the domain, so nobody else can claim it.
 3. **Merge `domain-switch` into `main`.**
 4. **Change the DNS** where spottyandtheowlapparel.com is registered:

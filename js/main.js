@@ -189,6 +189,22 @@ if (form) {
     form.elements.details.value = "Artwork review: please check my file before I order.";
   }
 
+  // Arriving from the price estimator: tick the same choices and note the estimate.
+  // The address looks like quote.html?g=hoodie&q=48&m=emb&d=small&p=1&est=$30 to $39
+  const from = new URLSearchParams(location.search);
+  if (from.has("g")) {
+    const GARMENTS = { tee: "T-shirts", long: "Long sleeves", hoodie: "Hoodies and sweatshirts", polo: "Polos", cap: "Hats and toques", jacket: "Jackets and outerwear" };
+    const METHODS = { screen: "Screen printing", emb: "Embroidery", vinyl: "Heat-transfer vinyl", dtf: "DTF printing", dtg: "DTG printing" };
+    const tick = (name, value) => { const box = form.querySelector(`[name="${name}"][value="${value}"]`); if (box) box.checked = true; };
+    tick("apparel", GARMENTS[from.get("g")]);
+    tick("method", METHODS[from.get("m")]);
+    if (from.get("p") === "2") { tick("placement", "Front"); tick("placement", "Back"); }
+    if (Number(from.get("q")) > 0) form.elements.quantity.value = from.get("q");
+    const d = from.get("d");
+    const design = /^\d$/.test(d) ? `${d === "4" ? "4 or more" : d} ink colour${d === "1" ? "" : "s"}` : `${d} design`;
+    form.elements.details.value = `From the price estimator: ${design}, estimated ${from.get("est")} each.`;
+  }
+
   fileInput.addEventListener("change", () => {
     const names = [...fileInput.files].map((f) => f.name);
     fileList.textContent = names.length ? `Added: ${names.join(", ")}` : "";

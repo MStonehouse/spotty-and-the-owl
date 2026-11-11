@@ -19,8 +19,8 @@
       property="og:description"
       content="How custom apparel pricing works at Spotty and the Owl: garments, quantity, method, design, placement, setup and turnaround."
     />
-    <meta property="og:url" content="https://spottyandtheowlapparel.com/pricing.html" />
-    <meta property="og:image" content="https://spottyandtheowlapparel.com/assets/share-card.jpg?v=2" />
+    <meta property="og:url" content="https://mstonehouse.github.io/spotty-and-the-owl/pricing.html" />
+    <meta property="og:image" content="https://mstonehouse.github.io/spotty-and-the-owl/assets/share-card.jpg?v=3" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta
@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/config.js" defer></script>
     <script src="js/main.js" defer></script>
+    <script src="js/estimator.js" defer></script>
   </head>
   <body data-page="pricing">
     <a class="skip" href="#main">Skip to content</a>
@@ -68,6 +69,101 @@
           Custom apparel pricing depends on the garment, the quantity, the method and the design. We give you a
           project-specific quote, so you know what to expect before production begins.
         </p>
+      </section>
+
+      <section class="wrap est-wrap" id="estimate" aria-labelledby="est-h">
+        <div class="est">
+          <div class="est-head">
+            <h2 id="est-h">Get a ballpark price</h2>
+            <p>Choose a few options for a rough price per item. Your quote will be exact.</p>
+          </div>
+
+          <!-- Phones: a slim price strip that stays in view while choosing options -->
+          <div class="est-live" aria-hidden="true">
+            <span>Estimate</span><strong id="est-live">$12 to $17</strong><span>each</span>
+          </div>
+          <form class="est-form" id="est-form">
+            <fieldset>
+              <legend>Garment</legend>
+              <div class="checks">
+                <label class="check"><input type="radio" name="g" value="tee" checked /><span>T-shirt</span></label>
+                <label class="check"><input type="radio" name="g" value="long" /><span>Long sleeve</span></label>
+                <label class="check"><input type="radio" name="g" value="hoodie" /><span>Hoodie</span></label>
+                <label class="check"><input type="radio" name="g" value="polo" /><span>Polo</span></label>
+                <label class="check"><input type="radio" name="g" value="cap" /><span>Cap</span></label>
+                <label class="check"><input type="radio" name="g" value="jacket" /><span>Jacket</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>How many?</legend>
+              <div class="est-qty">
+                <button type="button" class="est-step" data-step="-1" aria-label="Fewer">&minus;</button>
+                <input id="est-q" name="q" type="number" inputmode="numeric" min="1" value="24" aria-label="Quantity" />
+                <button type="button" class="est-step" data-step="1" aria-label="More">+</button>
+              </div>
+              <div class="checks est-presets">
+                <button type="button" data-q="12">12</button><button type="button" data-q="24">24</button>
+                <button type="button" data-q="48">48</button><button type="button" data-q="100">100</button
+                ><button type="button" data-q="250">250</button>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Method</legend>
+              <div class="checks">
+                <label class="check"
+                  ><input type="radio" name="m" value="screen" checked /><span>Screen printing</span></label
+                >
+                <label class="check"><input type="radio" name="m" value="emb" /><span>Embroidery</span></label>
+                <label class="check"><input type="radio" name="m" value="vinyl" /><span>Vinyl</span></label>
+                <label class="check"><input type="radio" name="m" value="dtf" /><span>DTF</span></label>
+                <label class="check"><input type="radio" name="m" value="dtg" /><span>DTG</span></label>
+              </div>
+              <p class="est-why" id="est-why" hidden></p>
+            </fieldset>
+
+            <fieldset>
+              <legend id="est-d-legend">Ink colours</legend>
+              <div class="checks" id="est-colours">
+                <label class="check"><input type="radio" name="c" value="1" /><span>1</span></label>
+                <label class="check"><input type="radio" name="c" value="2" checked /><span>2</span></label>
+                <label class="check"><input type="radio" name="c" value="3" /><span>3</span></label>
+                <label class="check"><input type="radio" name="c" value="4" /><span>4 or more</span></label>
+              </div>
+              <div class="checks" id="est-size" hidden>
+                <label class="check"
+                  ><input type="radio" name="s" value="small" checked /><span
+                    >Small, like a left chest or cap front</span
+                  ></label
+                >
+                <label class="check"
+                  ><input type="radio" name="s" value="large" /><span>Large, like a full front or back</span></label
+                >
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Where?</legend>
+              <div class="checks">
+                <label class="check"><input type="radio" name="p" value="1" checked /><span>One spot</span></label>
+                <label class="check"><input type="radio" name="p" value="2" /><span>Front and back</span></label>
+              </div>
+            </fieldset>
+          </form>
+
+          <aside class="est-result" aria-live="polite">
+            <p class="est-label">Estimated price</p>
+            <p class="est-each"><span id="est-each">$15 to $19</span><small>each</small></p>
+            <p class="est-total" id="est-total">About $360 to $460 for 24</p>
+            <p class="est-setup" id="est-setup">
+              Includes about $50 of one-time screen setup, shared across the order.
+            </p>
+            <p class="est-nudge" id="est-nudge"></p>
+            <a class="btn btn-light est-cta" id="est-cta" href="quote.html">Get your exact quote</a>
+            <p class="est-fine">An estimate only, based on typical garments. Your quote is exact.</p>
+          </aside>
+        </div>
       </section>
 
       <section class="wrap block" aria-labelledby="factors-h">
