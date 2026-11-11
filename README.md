@@ -74,7 +74,7 @@ spotty-and-the-owl/
 
 When someone shares a link to the site (Facebook, iMessage, Slack, LinkedIn...), the preview shows `assets/share-card.jpg`, a 1200 x 630 image, with the page's title and description. The tags that ask for it are near the top of every page, under the `<meta name="description">` line.
 
-**The addresses must be absolute.** Link previews are made by the sharing app's own server, which fetches the image by its full address, so the tags say `https://mstonehouse.github.io/spotty-and-the-owl/...`. When the site moves to Dan's own domain, replace that address in all eight pages with the new one in a single search-and-replace.
+**The addresses must be absolute.** Link previews are made by the sharing app's own server, which fetches the image by its full address, so the tags say `https://spottyandtheowlapparel.com/...`. If the domain ever changes, replace that address in all eight pages in a single search-and-replace.
 
 **Keep the words big.** Apps show the card at about 300 to 500 pixels wide, so everything on it shrinks to a third or less. Keep every line of text at 42px or larger in the source, and keep it to a few words.
 
@@ -92,7 +92,7 @@ The browser-tab and home-screen icons are Dan's owl, cut from his logo. `favicon
 
 ## Moving to spottyandtheowlapparel.com
 
-Everything for the move is ready on the `domain-switch` branch: every page address and share-card address changed to `https://spottyandtheowlapparel.com/`, plus a `CNAME` file that tells GitHub Pages to answer for Dan's domain. **Don't merge it early.** Once `CNAME` is on `main`, the GitHub address redirects to Dan's domain, which shows the old WordPress site until the DNS change below takes effect. Merge it on switch day.
+This branch (`domain-switch`) holds everything for the move: every page address and share-card address changed to `https://spottyandtheowlapparel.com/`, plus a `CNAME` file that tells GitHub Pages to answer for Dan's domain. **Don't merge it early.** Once `CNAME` is on `main`, the GitHub address redirects to Dan's domain, which shows the old WordPress site until the DNS change below takes effect. Merge it on switch day.
 
 Switch day, in this order:
 
