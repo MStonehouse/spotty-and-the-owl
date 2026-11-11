@@ -1,71 +1,521 @@
 <!doctype html>
 <html lang="en-CA">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Spotty and the Owl Apparel</title>
-  <meta name="description" content="Custom screen printing, embroidery, vinyl, DTF and DTG printing in Comox, BC. Apparel for businesses, trades, schools, sports teams and events.">
-  <meta name="theme-color" content="#F2F3EF" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#101916" media="(prefers-color-scheme: dark)">
-  <link rel="preload" href="assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <a class="skip" href="#main">Skip to content</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Spotty and the Owl Apparel</title>
+    <meta
+      name="description"
+      content="Custom screen printing, embroidery, vinyl, DTF and DTG printing in Comox, BC. Apparel for businesses, trades, schools, sports teams and events."
+    />
+    <meta name="theme-color" content="#F2F3EF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#101916" media="(prefers-color-scheme: dark)" />
+    <link rel="preload" href="assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/config.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </head>
+  <body data-page="home">
+    <a class="skip" href="#main">Skip to content</a>
 
-  <!-- Top bar: logo, and on wide screens the full navigation -->
-  <header class="topbar" id="topbar">
-    <div class="wrap topbar-in">
-      <a class="brand" href="#home" aria-label="Spotty and the Owl Apparel, home">
-        <span class="brand-mark" data-svg="wordmark"></span>
-      </a>
-      <nav class="topnav" aria-label="Main">
-        <a href="#services">Services</a>
-        <a href="#work">Work</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#artwork">Artwork</a>
-        <a href="#about">About</a>
-      </nav>
-      <a class="btn btn-sm topbar-cta" href="#quote">Get a quote</a>
+    <!-- Top bar: logo, and on wide screens the full navigation -->
+    <header class="topbar">
+      <div class="wrap topbar-in">
+        <a class="brand" href="index.html" aria-label="Spotty and the Owl Apparel, home">
+          <span class="brand-mark logo logo-wordmark"></span>
+        </a>
+        <nav class="topnav" aria-label="Main">
+          <a href="services.html">Services</a>
+          <a href="work.html">Work</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="artwork.html">Artwork</a>
+          <a href="about.html">About</a>
+        </nav>
+        <a class="btn btn-sm topbar-cta" href="quote.html">Get a quote</a>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <section class="hero wrap">
+        <div class="hero-text">
+          <h1 class="display">Make something worth wearing.</h1>
+          <p class="lede">
+            Custom screen printing, embroidery, vinyl, DTF and DTG printing for businesses, trades, schools, sports
+            teams and events.
+          </p>
+          <div class="actions">
+            <a class="btn" href="quote.html">Request a quote</a>
+            <a class="btn btn-quiet" href="work.html">See our work</a>
+          </div>
+          <p class="hero-place">Family-run in Comox, BC, on Vancouver Island, since 2018.</p>
+        </div>
+
+        <div class="hoop">
+          <video
+            class="hoop-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="assets/video/stitching-poster.webp"
+            aria-label="Our Tajima embroidery machine stitching a logo onto a grey cap"
+          >
+            <source src="assets/video/stitching.mp4" type="video/mp4" />
+          </video>
+          <svg class="hoop-frame" viewBox="0 0 400 400" aria-hidden="true">
+            <defs>
+              <mask id="sew">
+                <circle
+                  class="sew-mask"
+                  cx="200"
+                  cy="200"
+                  r="193"
+                  pathLength="1"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="10"
+                  transform="rotate(-90 200 200)"
+                />
+              </mask>
+            </defs>
+            <circle class="hoop-ring" cx="200" cy="200" r="168" />
+            <circle class="hoop-ring" cx="200" cy="200" r="180" />
+            <g class="hoop-clasp">
+              <rect x="184" y="8" width="32" height="20" rx="3" />
+              <rect x="176" y="2" width="48" height="8" rx="4" />
+            </g>
+            <circle class="hoop-stitch" cx="200" cy="200" r="193" mask="url(#sew)" />
+          </svg>
+        </div>
+      </section>
+
+      <section class="wrap block" aria-labelledby="methods-h">
+        <div class="head">
+          <h2 id="methods-h">Five ways to put your name on it</h2>
+          <p>
+            Each method suits different garments, artwork and order sizes. Tell us about your project and we'll
+            recommend the right one.
+          </p>
+        </div>
+        <ul class="methods">
+          <li>
+            <a class="method" href="services.html#screen-printing">
+              <span class="method-img"
+                ><img
+                  class=""
+                  src="assets/img/screen-print-800.webp"
+                  srcset="assets/img/screen-print-800.webp 800w, assets/img/screen-print-1600.webp 1600w"
+                  sizes="(min-width: 760px) 20vw, 30vw"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+              /></span>
+              <span class="method-text"
+                ><strong>Screen printing</strong><span>Bold, consistent graphics for larger runs.</span></span
+              >
+            </a>
+          </li>
+          <li>
+            <a class="method" href="services.html#embroidery">
+              <span class="method-img"
+                ><img
+                  class=""
+                  src="assets/img/fire-crest-800.webp"
+                  srcset="assets/img/fire-crest-800.webp 800w, assets/img/fire-crest-1600.webp 1600w"
+                  sizes="(min-width: 760px) 20vw, 30vw"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+              /></span>
+              <span class="method-text"
+                ><strong>Embroidery</strong><span>A stitched, textured finish that looks professional.</span></span
+              >
+            </a>
+          </li>
+          <li>
+            <a class="method" href="services.html#vinyl">
+              <span class="method-img"
+                ><img
+                  class=""
+                  src="assets/img/vinyl-peel-800.webp"
+                  srcset="assets/img/vinyl-peel-800.webp 800w, assets/img/vinyl-peel-1600.webp 1600w"
+                  sizes="(min-width: 760px) 20vw, 30vw"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+              /></span>
+              <span class="method-text"
+                ><strong>Heat-transfer vinyl</strong><span>Clean names, numbers and lettering.</span></span
+              >
+            </a>
+          </li>
+          <li>
+            <a class="method" href="services.html#dtf">
+              <span class="method-img"
+                ><img
+                  class=""
+                  src="assets/img/heat-press-colour-800.webp"
+                  srcset="assets/img/heat-press-colour-800.webp 800w, assets/img/heat-press-colour-1600.webp 1600w"
+                  sizes="(min-width: 760px) 20vw, 30vw"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+              /></span>
+              <span class="method-text"
+                ><strong>DTF printing</strong><span>Full-colour transfers that work on many fabrics.</span></span
+              >
+            </a>
+          </li>
+          <li>
+            <a class="method" href="services.html#dtg">
+              <span class="method-img"
+                ><img
+                  class=""
+                  src="assets/img/dtg-printer-800.webp"
+                  srcset="assets/img/dtg-printer-800.webp 800w, assets/img/dtg-printer-1600.webp 1600w"
+                  sizes="(min-width: 760px) 20vw, 30vw"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+              /></span>
+              <span class="method-text"
+                ><strong>DTG printing</strong><span>Photo-quality detail printed straight onto cotton.</span></span
+              >
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="band" aria-labelledby="who-h">
+        <div class="wrap block">
+          <div class="head">
+            <h2 id="who-h">Apparel for every team, business and occasion</h2>
+          </div>
+          <div class="who" data-tabs>
+            <div class="who-tabs" role="tablist" aria-label="Who we work with">
+              <button role="tab" id="tab-businesses" aria-controls="panel-businesses" aria-selected="true" tabindex="0">
+                Businesses</button
+              ><button role="tab" id="tab-trades" aria-controls="panel-trades" aria-selected="false" tabindex="-1">
+                Trades</button
+              ><button role="tab" id="tab-schools" aria-controls="panel-schools" aria-selected="false" tabindex="-1">
+                Schools</button
+              ><button role="tab" id="tab-teams" aria-controls="panel-teams" aria-selected="false" tabindex="-1">
+                Sports teams</button
+              ><button role="tab" id="tab-events" aria-controls="panel-events" aria-selected="false" tabindex="-1">
+                Events and organizations
+              </button>
+            </div>
+
+            <div class="who-panel" role="tabpanel" id="panel-businesses" aria-labelledby="tab-businesses">
+              <div class="who-img">
+                <img
+                  class=""
+                  src="assets/img/hk-flannel-800.webp"
+                  srcset="assets/img/hk-flannel-800.webp 800w, assets/img/hk-flannel-1600.webp 1600w"
+                  sizes="(min-width: 760px) 45vw, 100vw"
+                  alt="A grey and black quilted flannel shirt jacket with an embroidered HK monogram"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <p>
+                Branded uniforms, promotional apparel and company merchandise that look as professional as the work you
+                do.
+              </p>
+            </div>
+            <div class="who-panel" role="tabpanel" id="panel-trades" aria-labelledby="tab-trades" hidden>
+              <div class="who-img">
+                <img
+                  class=""
+                  src="assets/img/belmont-hat-800.webp"
+                  srcset="assets/img/belmont-hat-800.webp 800w, assets/img/belmont-hat-1600.webp 1600w"
+                  sizes="(min-width: 760px) 45vw, 100vw"
+                  alt="A black cap embroidered with the Belmont Landscaping and Design logo, sitting on a granite boulder"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <p>Durable workwear, branded shirts, hoodies, jackets and hats that stand up to the job site.</p>
+            </div>
+            <div class="who-panel" role="tabpanel" id="panel-schools" aria-labelledby="tab-schools" hidden>
+              <div class="who-img">
+                <img
+                  class=""
+                  src="assets/img/patch-dream-big-800.webp"
+                  srcset="assets/img/patch-dream-big-800.webp 800w, assets/img/patch-dream-big-1600.webp 1600w"
+                  sizes="(min-width: 760px) 45vw, 100vw"
+                  alt="An embroidered graduation cap patch reading Dream Big in gold thread"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <p>Spirit wear, club apparel, graduation clothing and gear for school events.</p>
+            </div>
+            <div class="who-panel" role="tabpanel" id="panel-teams" aria-labelledby="tab-teams" hidden>
+              <div class="who-img">
+                <img
+                  class=""
+                  src="assets/img/lacrosse-tees-800.webp"
+                  srcset="assets/img/lacrosse-tees-800.webp 800w, assets/img/lacrosse-tees-1600.webp 1600w"
+                  sizes="(min-width: 760px) 45vw, 100vw"
+                  alt="A stack of white Comox Valley Wild Lacrosse t-shirts printed in gold and navy"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <p>Team shirts, practice apparel, jerseys and fan merchandise, with names and numbers.</p>
+            </div>
+            <div class="who-panel" role="tabpanel" id="panel-events" aria-labelledby="tab-events" hidden>
+              <div class="who-img">
+                <img
+                  class=""
+                  src="assets/img/westcoast-weekends-800.webp"
+                  srcset="assets/img/westcoast-weekends-800.webp 800w, assets/img/westcoast-weekends-1600.webp 1600w"
+                  sizes="(min-width: 760px) 45vw, 100vw"
+                  alt="Charcoal and black sweatshirts printed with Forest bathing, Beach walks, Mountain tops"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <p>Event shirts, staff apparel, fundraising merchandise and group clothing.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" aria-labelledby="recent-h">
+        <div class="wrap head head-row">
+          <h2 id="recent-h">Recent work</h2>
+          <a class="link" href="work.html">All work</a>
+        </div>
+        <div class="strip" tabindex="0" aria-label="Recent work, scroll sideways">
+          <figure class="strip-item">
+            <img
+              class=""
+              src="assets/img/lacrosse-tees-800.webp"
+              srcset="assets/img/lacrosse-tees-800.webp 800w, assets/img/lacrosse-tees-1600.webp 1600w"
+              sizes="(min-width: 760px) 26vw, 72vw"
+              alt="A stack of white Comox Valley Wild Lacrosse t-shirts printed in gold and navy"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption><strong>Comox Valley Wild Lacrosse</strong>Team tees in gold and navy</figcaption>
+          </figure>
+          <figure class="strip-item">
+            <img
+              class=""
+              src="assets/img/belmont-hat-angle-800.webp"
+              srcset="assets/img/belmont-hat-angle-800.webp 800w, assets/img/belmont-hat-angle-1600.webp 1600w"
+              sizes="(min-width: 760px) 26vw, 72vw"
+              alt="A black cap embroidered with the Belmont Landscaping and Design logo"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption><strong>Belmont Landscaping &amp; Design</strong>Embroidered Flexfit caps</figcaption>
+          </figure>
+          <figure class="strip-item">
+            <img
+              class=""
+              src="assets/img/fire-crest-800.webp"
+              srcset="assets/img/fire-crest-800.webp 800w, assets/img/fire-crest-1600.webp 1600w"
+              sizes="(min-width: 760px) 26vw, 72vw"
+              alt="A Tajima embroidery machine stitching a fire department crest onto a navy shirt"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption><strong>Fire department crest</strong>Embroidered left chest</figcaption>
+          </figure>
+          <figure class="strip-item">
+            <img
+              class=""
+              src="assets/img/hk-flannel-800.webp"
+              srcset="assets/img/hk-flannel-800.webp 800w, assets/img/hk-flannel-1600.webp 1600w"
+              sizes="(min-width: 760px) 26vw, 72vw"
+              alt="A quilted flannel shirt jacket with an embroidered HK monogram"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption><strong>HK monogram</strong>Embroidered quilted flannel jacket</figcaption>
+          </figure>
+          <figure class="strip-item">
+            <img
+              class=""
+              src="assets/img/westcoast-weekends-800.webp"
+              srcset="assets/img/westcoast-weekends-800.webp 800w, assets/img/westcoast-weekends-1600.webp 1600w"
+              sizes="(min-width: 760px) 26vw, 72vw"
+              alt="Charcoal and black sweatshirts printed with Forest bathing, Beach walks, Mountain tops"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption><strong>Westcoast Weekends</strong>Crewneck sweatshirts</figcaption>
+          </figure>
+          <figure class="strip-item">
+            <img
+              class=""
+              src="assets/img/island-trucker-800.webp"
+              srcset="assets/img/island-trucker-800.webp 800w, assets/img/island-trucker-1600.webp 1600w"
+              sizes="(min-width: 760px) 26vw, 72vw"
+              alt="A woman on the beach wearing a black trucker cap with a Vancouver Island outline"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption><strong>Vancouver Island trucker</strong>Trucker cap, photo by The Comox Box</figcaption>
+          </figure>
+          <figure class="strip-item">
+            <img
+              class=""
+              src="assets/img/dog-mom-800.webp"
+              srcset="assets/img/dog-mom-800.webp 800w, assets/img/dog-mom-1600.webp 1600w"
+              sizes="(min-width: 760px) 26vw, 72vw"
+              alt="A black crewneck printed with Dog Mom in white"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption><strong>Dog Mom</strong>Westcoast Weekends crewneck</figcaption>
+          </figure>
+          <figure class="strip-item">
+            <img
+              class=""
+              src="assets/img/squad-love-800.webp"
+              srcset="assets/img/squad-love-800.webp 800w, assets/img/squad-love-1600.webp 1600w"
+              sizes="(min-width: 760px) 26vw, 72vw"
+              alt="A woman in a mustard toque and black Squad Love sweatshirt in the forest"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption><strong>Squad Love</strong>Crewneck sweatshirt</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="wrap block" aria-labelledby="why-h">
+        <div class="split">
+          <div>
+            <h2 id="why-h">Why choose Spotty and the Owl</h2>
+            <blockquote class="say">Don't just say it. Wear it.</blockquote>
+            <div class="why-img">
+              <img
+                class=""
+                src="assets/img/logo-hoodie-800.webp"
+                srcset="assets/img/logo-hoodie-800.webp 800w, assets/img/logo-hoodie-1600.webp 1600w"
+                sizes="(min-width: 760px) 35vw, 100vw"
+                alt="A smiling woman in a sage green Spotty and the Owl hoodie"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+          <dl class="reasons">
+            <div>
+              <dt>Every method under one roof</dt>
+              <dd>
+                Screen printing, embroidery, vinyl, DTF and DTG, so the choice is about your project, not our equipment.
+              </dd>
+            </div>
+            <div>
+              <dt>Blank apparel, sourced for you</dt>
+              <dd>We help you choose the garment as well as the decoration, from tees to jackets and hats.</dd>
+            </div>
+            <div>
+              <dt>Guidance at every step</dt>
+              <dd>Honest recommendations on method, placement and budget, from first idea to final count.</dd>
+            </div>
+            <div>
+              <dt>Care with artwork and detail</dt>
+              <dd>
+                We check your files before anything is printed or stitched, so the result matches what you approved.
+              </dd>
+            </div>
+            <div>
+              <dt>Built for groups</dt>
+              <dd>Solutions for businesses, teams and organizations, from a dozen shirts to a full uniform order.</dd>
+            </div>
+            <div>
+              <dt>Clear quotes, clear expectations</dt>
+              <dd>You know the price, the timeline and the quantity before production begins.</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="cta">
+        <div class="wrap cta-in">
+          <h2>Let's make something worth wearing.</h2>
+          <p>From a simple logo on a work shirt to apparel for a whole organization.</p>
+          <div class="actions">
+            <a class="btn btn-light" href="quote.html">Request a quote</a>
+            <a class="cta-phone" href="tel:+12502183428">250-218-3428</a>
+          </div>
+          <span class="cta-logo logo logo-full" aria-hidden="true"></span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-in">
+        <div class="footer-brand">
+          <span class="footer-logo logo logo-wordmark"></span>
+          <p class="say">Wear your identity.</p>
+        </div>
+        <div class="footer-cols">
+          <div>
+            <h2>Visit or call</h2>
+            <p>Comox, BC<br />Vancouver Island</p>
+            <p><a class="" href="tel:+12502183428">250-218-3428</a></p>
+          </div>
+          <div>
+            <h2>Explore</h2>
+            <ul>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="work.html">Work</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="artwork.html">Artwork guidelines</a></li>
+              <li><a href="guarantee.html">Our guarantee</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>Follow</h2>
+            <ul>
+              <li>
+                <a href="https://www.instagram.com/spottyandtheowl_apparel/" target="_blank" rel="noopener"
+                  >Instagram</a
+                >
+              </li>
+              <li><a href="https://www.facebook.com/spottyandtheowl" target="_blank" rel="noopener">Facebook</a></li>
+              <li>
+                <a href="https://www.spottyandtheowlpromotional.com/" target="_blank" rel="noopener"
+                  >Promotional products</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <p class="footer-small">&copy; <span data-year>2026</span> Spotty and the Owl Apparel. Est. 2018.</p>
+      </div>
+    </footer>
+
+    <!-- Bottom dock for phones: always within thumb reach -->
+    <div class="dock">
+      <button class="dock-menu" id="menu-open" type="button" aria-expanded="false" aria-controls="sheet">
+        <span class="dock-bars" aria-hidden="true"><i></i><i></i></span>Menu
+      </button>
+      <a class="btn dock-cta" href="quote.html">Get a quote</a>
     </div>
-  </header>
 
-  <main id="main" tabindex="-1"></main>
-
-  <footer class="footer" id="footer"></footer>
-
-  <!-- Bottom dock for phones: always within thumb reach -->
-  <div class="dock" id="dock">
-    <button class="dock-menu" id="menu-open" type="button" aria-expanded="false" aria-controls="sheet">
-      <span class="dock-bars" aria-hidden="true"><i></i><i></i></span>Menu
-    </button>
-    <a class="btn dock-cta" href="#quote">Get a quote</a>
-  </div>
-
-  <!-- Phone menu sheet -->
-  <div class="sheet" id="sheet" hidden>
-    <div class="sheet-scrim" data-close></div>
-    <nav class="sheet-panel" aria-label="Menu">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#work">Work</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#artwork">Artwork</a>
-      <a href="#about">About</a>
-      <a href="#policies">Our guarantee</a>
-      <button class="sheet-close" type="button" data-close>Close menu</button>
-    </nav>
-  </div>
-
-  <!-- Full-screen photo viewer for the Work page -->
-  <dialog class="viewer" id="viewer" aria-label="Photo viewer">
-    <img id="viewer-img" alt="">
-    <p id="viewer-cap"></p>
-    <button class="viewer-close" type="button" id="viewer-close" aria-label="Close photo">Close</button>
-  </dialog>
-
-  <script src="js/logos.js"></script>
-  <script src="js/content.js"></script>
-  <script src="js/main.js"></script>
-</body>
+    <!-- Phone menu sheet -->
+    <div class="sheet" id="sheet" hidden>
+      <div class="sheet-scrim" data-close></div>
+      <nav class="sheet-panel" aria-label="Menu">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="services.html">Services</a>
+        <a href="work.html">Work</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="artwork.html">Artwork</a>
+        <a href="about.html">About</a>
+        <a href="guarantee.html">Our guarantee</a>
+        <button class="sheet-close" type="button" data-close>Close menu</button>
+      </nav>
+    </div>
+  </body>
 </html>

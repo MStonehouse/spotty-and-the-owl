@@ -95,6 +95,7 @@ body {
   padding-bottom: calc(84px + env(safe-area-inset-bottom));  /* room for the phone dock */
 }
 img, video, svg { display: block; max-width: 100%; }
+[hidden] { display: none !important; }  /* hidden always wins over a display rule */
 img { height: auto; }
 button, input, textarea, select { font: inherit; color: inherit; }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
@@ -185,7 +186,15 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; 
 }
 .topbar-in { display: flex; align-items: center; gap: 24px; min-height: 72px; }
 .brand { display: block; color: var(--ink); }
-.brand-mark svg { height: 56px; width: auto; }
+/* The logo: the SVG file is used as a stencil (mask) and filled with the text colour,
+   so it's black in light mode and white in dark mode from one file. */
+.logo {
+  display: block; background: currentColor;
+  -webkit-mask: center / contain no-repeat; mask: center / contain no-repeat;
+}
+.logo-wordmark { -webkit-mask-image: url("../assets/logo/wordmark.svg"); mask-image: url("../assets/logo/wordmark.svg"); aspect-ratio: 1266 / 1332; }
+.logo-full { -webkit-mask-image: url("../assets/logo/logo-full.svg"); mask-image: url("../assets/logo/logo-full.svg"); aspect-ratio: 3352 / 2854; }
+.brand-mark { height: 56px; }
 .topnav, .topbar-cta { display: none; }
 
 .dock {
@@ -296,7 +305,6 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; 
 }
 .who-tabs button[aria-selected="true"] { background: var(--spruce-ink); color: #24453A; border-color: var(--spruce-ink); }
 .who-panel { display: grid; gap: 20px; }
-.who-panel[hidden] { display: none; }
 .who-img img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 18px; }
 .who-panel p { font: italic 500 clamp(1.35rem, 4.6vw, 1.9rem)/1.25 "Newsreader", Georgia, serif; margin: 0; max-width: 30ch; }
 
@@ -353,7 +361,6 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; 
 }
 .filters button[aria-pressed="true"] { background: var(--ink); color: var(--bone); border-color: var(--ink); }
 .gallery { list-style: none; margin: 0 0 64px; padding: 0; display: grid; gap: 22px; }
-.gallery li[hidden] { display: none; }
 .tile { display: block; width: 100%; padding: 0; border: 0; background: none; text-align: left; cursor: zoom-in; }
 .tile img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 16px; background: var(--fog); }
 .tile-cap { display: grid; padding-top: 10px; color: var(--muted); font-size: .95rem; }
@@ -372,7 +379,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; 
 .card-cta p { font: italic 500 1.5rem/1.2 "Newsreader", Georgia, serif; }
 
 .about-logo { color: var(--ink); padding: 8px; }
-.about-logo svg { width: 100%; max-width: 520px; height: auto; margin-inline: auto; }
+.about-logo .logo { width: 100%; max-width: 520px; margin-inline: auto; }
 .reasons-3 { border-top: 1px solid var(--fog); }
 
 .policy { padding-block: 24px 64px; }
@@ -462,7 +469,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; 
 .footer { border-top: 1px solid var(--fog); }
 .footer-in { padding-block: 48px 28px; display: grid; gap: 32px; }
 .footer-logo { display: block; color: var(--ink); }
-.footer-logo svg { height: 96px; width: auto; }
+.footer-logo { height: 96px; }
 .footer-brand .say { margin-top: 14px; font-size: 1.5rem; }
 .footer-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
 .footer-cols h2 { font-size: .95rem; font-weight: 650; font-stretch: 100%; color: var(--muted); margin-bottom: 10px; letter-spacing: 0; }
@@ -505,7 +512,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; 
   .wrap { padding-left: max(32px, env(safe-area-inset-left, 0px)); padding-right: max(32px, env(safe-area-inset-right, 0px)); }
   .block { padding-block: 96px; }
   .topbar-in { min-height: 84px; }
-  .brand-mark svg { height: 62px; }
+  .brand-mark { height: 62px; }
   .topnav { display: flex; gap: 4px; margin-left: auto; }
   .topnav a { padding: 10px 12px; text-decoration: none; font-weight: 600; border-radius: 8px; }
   .topnav a:hover { text-decoration: underline; text-decoration-color: var(--gold); text-decoration-thickness: 2px; text-underline-offset: 6px; }
@@ -544,7 +551,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; 
   .cta-in { padding-block: 96px; grid-template-columns: 1fr minmax(260px, 420px); column-gap: 56px; }
   .cta-in > * { grid-column: 1; }
   .cta-logo { display: block; grid-column: 2; grid-row: 1 / span 3; align-self: center; color: var(--spruce-ink); opacity: .9; }
-  .cta-logo svg { width: 100%; height: auto; }
+  .cta-logo.logo { width: 100%; }
   .footer-in { grid-template-columns: 1fr 2fr; }
   .footer-cols { grid-template-columns: repeat(3, 1fr); }
   .footer-small { grid-column: 1 / -1; }
