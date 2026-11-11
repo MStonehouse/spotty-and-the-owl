@@ -1,6 +1,6 @@
 # Spotty and the Owl Apparel website
 
-The website for **Spotty and the Owl Apparel**, a family-run custom apparel shop in Comox, BC, on Vancouver Island. It covers screen printing, embroidery, heat-transfer vinyl, DTF and DTG printing for businesses, trades, schools, sports teams and events.
+The website for **Spotty and the Owl Apparel**, a family-run custom apparel shop in Courtenay, BC, on Vancouver Island. It covers screen printing, embroidery, heat-transfer vinyl, DTF and DTG printing for businesses, trades, schools, sports teams and events.
 
 It's a hand-built static site: plain HTML, CSS and JavaScript, with no frameworks, no build step and nothing to install. To preview it on your computer, run a tiny local web server from this folder and open the address it prints:
 
