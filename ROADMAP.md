@@ -8,7 +8,7 @@ Features saved for later. The full explanation of each is in the PDF "Ideas to m
 
 2. **Team and club order pages.** A page per team, school or club where each member picks their sizes and pays, and Dan receives one combined order. Dan's existing Shopify store (currently unused) is a good fit. Needs from Dan: which garments and prices to offer, order deadlines, and pickup or delivery arrangements.
 
-3. **Ballpark price estimator.** Built and live on the Pricing page, running on **sample prices**. Still needed from Dan: his real numbers for the tables in `js/estimator.js`, how wide a range he's comfortable showing, and which methods don't suit which garments. Must be done before the move to his domain.
+3. **Ballpark price estimator.** Built and live on the Pricing page, running on **sample prices**. Still needed from Dan: his real numbers for the tables in `js/estimator.js`, how wide a range he's comfortable showing, and which methods don't suit which garments. The site launches with the Pricing page hidden (done on the `domain-switch` branch). Once the real prices are in, Dan checks them on a preview link, then the Pricing links go back into the menus and the page goes live.
 
 ## Can be added when Dan wants it
 

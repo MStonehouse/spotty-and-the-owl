@@ -107,7 +107,7 @@ This branch (`domain-switch`) holds everything for the move: every page address 
 
 Switch day, in this order:
 
-1. **Before anything else:** Dan approves the site, the quote form is connected, his email address is on the site, and **the price estimator has his real prices** (it currently runs on sample numbers; see "Price estimator").
+1. **Before anything else:** Dan approves the site, the quote form is connected, and his email address is on the site. **The Pricing page launches hidden** (it runs on sample numbers; see "Price estimator"): `domain-switch` takes its links out of every menu and asks search engines not to list it. It comes back once Dan's real prices are in.
 2. **Verify the domain with GitHub** (your GitHub Settings, then Pages, then "Add a domain"). GitHub gives a TXT record to add at the domain's DNS. GitHub recommends this before pointing the domain, so nobody else can claim it.
 3. **Merge `domain-switch` into `main`.**
 4. **Change the DNS** where spottyandtheowlapparel.com is registered:
